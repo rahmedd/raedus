@@ -62,9 +62,17 @@ const skillTree = {
 
 <BaseLayout pageTitle={pageTitle}>
 <div class="about-page">
-	<a class="button" href="https://linkedin.com/in/raed-dfw">LinkedIn</a>
-	<a class="button" href="https://github.com/rahmedd">GitHub</a>
-	<a class="button" href="https://gitlab.com/rahmedd/">GitLab</a>
+	<h2 class="title">About Me</h2>
+	<div class="contact-info">
+		<p>A passionate developer.</p>
+	</div>
+
+	<h2 class="title">Contact</h2>
+	<div class="contact-info">
+		<a class="button" href="https://linkedin.com/in/raed-dfw">LinkedIn</a>
+		<a class="button" href="https://github.com/rahmedd">GitHub</a>
+		<a class="button" href="https://gitlab.com/rahmedd/">GitLab</a>
+	</div>
 
 	<h2 class="title">Skills</h2>
 	{Object.keys(skillTree).map((category) => (
@@ -92,5 +100,9 @@ const skillTree = {
 	.tag {
 		margin-right: 0.5rem;
 	}
+}
+
+.contact-info {
+	margin-bottom: 2rem;
 }
 </style>
