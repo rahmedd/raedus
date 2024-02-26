@@ -1,0 +1,45 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+const { frontmatter } = Astro.props;
+---
+<BaseLayout pageTitle={frontmatter.title}>
+	<div class="blog-post">
+		<span class="title">{frontmatter.title}</span>
+		<p class="blog-date">{frontmatter.pubDate.toISOString().slice(0,10)}</p>
+		<!-- <p><em>{frontmatter.description}</em></p> -->
+		<!-- <p>Written by: {frontmatter.author}</p> -->
+		<!-- <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} /> -->
+		<div class="tags">
+			{
+				frontmatter.tags.map(
+					item => (
+						<a class="tag is-light" href={`/tags/${item}`}>{item}</a>
+					)
+				)
+			}
+		</div>
+		<slot />
+	</div>
+</BaseLayout>
+
+<style lang="scss" scoped>
+@import "bulma/sass/utilities/initial-variables.sass"; // breakpoints
+@import "../styles/vars.scss";
+
+.blog-post {
+	margin: $bl-page-margin;
+}
+
+.blog-date {
+	font-size: 1.2rem;
+	color: #666;
+	margin-bottom: 0.5rem;
+}
+
+// fullscreen modal
+@media screen and (max-width: $tablet) {
+	.blog-post {
+		margin: 2rem;
+	}
+}
+</style>

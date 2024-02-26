@@ -1,0 +1,8 @@
+---
+const { platform, username } = Astro.props
+---
+<a class="button is-ghost" href={`https://www.${platform}.com/${username}`}>{platform}</a>
+
+<style lang="scss" scoped>
+
+</style>

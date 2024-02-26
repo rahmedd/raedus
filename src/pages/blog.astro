@@ -1,0 +1,59 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogPost from "../components/BlogPost.astro";
+
+const pageTitle = "Blog";
+const allPosts = await getCollection("posts");
+const postsByYear = allPosts.reduce((acc, post) => {
+	const year = new Date(post.data.pubDate).getFullYear();
+	if (!acc[year]) acc[year] = [];
+	acc[year].push(post);
+	return acc;
+}, {});
+const sortedYears = Object.keys(postsByYear).sort((a, b) => parseInt(b) - parseInt(a));
+---
+
+<BaseLayout pageTitle={pageTitle}>
+<div class="blog-page">
+	<p class="title">Posts</p>
+	{sortedYears.map((year) => (
+		<div class="blog-by-year">
+			<span class="subtitle">{year}</span>
+			<ul>
+				{postsByYear[year].map((post) => (
+					<li>
+						<BlogPost url={"/posts/" + post.slug} title={post.data.title} />
+					</li>
+				))}
+			</ul>
+		</div>
+	))}
+</div>
+</BaseLayout>
+
+<style lang="scss" scoped>
+@import "bulma/sass/utilities/initial-variables.sass"; // breakpoints
+@import "../styles/vars.scss";
+
+.blog-page {
+	margin: $bl-page-margin;
+	min-height: 100dvh;
+}
+
+.blog-date {
+	font-size: 1.2rem;
+	color: #666;
+}
+
+.blog-by-year {
+	margin-bottom: 1rem;
+}
+
+// fullscreen modal
+@media screen and (max-width: $tablet) {
+	.blog-post {
+		margin: 2rem;
+	}
+}
+</style>

@@ -1,0 +1,55 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const allPosts = await getCollection("posts");
+const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+const pageTitle = "Tags";
+
+const tagCounts = {};
+tags.forEach((tag) => {
+	const count = allPosts.filter((post) => post.data.tags.includes(tag)).length;
+	tagCounts[tag] = count;
+});
+
+console.log(tags)
+console.log(tagCounts);
+
+---
+<BaseLayout pageTitle={pageTitle}>
+	<div class="tags-page">
+		<h2 class="title">{pageTitle}</h2>
+		<div class="tags-list">
+			{
+				tags.map((tag) => (
+					<div class="tags has-addons">
+						<a class="tag is-link is-medium" href={`/tags/${tag}`}>{tag}</a>
+						<a class="tag is-link is-light is-medium" href={`/tags/${tag}`}>{tagCounts[tag]}</a>
+					</div>
+				))
+			}
+		</div>
+	</div>
+
+</BaseLayout>
+
+<style lang="scss" scoped>
+@import "bulma/sass/utilities/initial-variables.sass"; // breakpoints
+@import "../../styles/vars.scss";
+
+.tags-page {
+	margin: $bl-page-margin;
+	min-height: 100dvh;
+}
+
+.tags-list {
+	display: flex;
+	flex-wrap: wrap;
+	// justify-content: space-between;
+	align-items: baseline;
+}
+
+.tags {
+	// margin: 0 0.5rem 0.5rem 0;
+	margin-right: 1rem;
+}
+</style>

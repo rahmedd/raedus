@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Greeting from '../components/Greeting';
+const pageTitle = "Home Page";
+---
+<!-- <BaseLayout pageTitle={pageTitle}> -->
+<BaseLayout>
+	<!-- <Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} /> -->
+	<div class="index-page">
+		<p class="title">
+			Raed Ahmed
+		</p>
+		<p class="subtitle">
+			<div>
+				<p>Full Stack Developer</p>
+			</div>
+			<div>
+				<p>Dallas, Texas</p>
+			</div>
+		</p>
+	</div>
+</BaseLayout>
+
+<style lang="scss" scoped>
+	.index-page {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		min-height: 100dvh;
+	}
+	.title {
+		font-size: 3rem;
+		font-weight: bold;
+	}
+	.subtitle {
+		font-size: 1.5rem;
+	}
+</style>

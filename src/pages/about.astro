@@ -1,0 +1,96 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "About Me";
+const happy = true;
+const finished = true;
+const goal = 3;
+
+const identity = {
+  firstName: "first",
+  country: "last",
+  occupation: "Technical Writer",
+  hobbies: ["running", "birdwatching", "baseball"],
+};
+
+const skills = [
+	'JavaScript',
+	'TypeScript',
+	'Python',
+	'HTML',
+	'Pug',
+	'CSS',
+	'SCSS',
+	'SASS',
+	'SQL',
+	'MySQL',
+	'Postgres',
+	'Cypress',
+	'Vue.js',
+	'Astro',
+	'Express',
+	'NestJS',
+	'TypeORM',
+	'MikroORM',
+	'Prisma',
+	'Flask',
+	'FastAPI',
+	'Docker',
+	'Avalara',
+	'NetSuite',
+	'TSYS',
+	'NGINX',
+];
+
+const skillTree = {
+	'Languages': ['JavaScript', 'TypeScript', 'Python', 'C#'],
+	'Frontend': ['Vue.js', 'Astro'],
+	'Backend': ['Express', 'NestJS', 'ASP.NET'],
+	'Python': ['Flask', 'FastAPI', 'Web2Py'],
+	'Styling': ['CSS', 'SCSS', 'SASS'],
+	'Templating': ['Pug', 'Jinja2', 'JSX'],
+	'Databases': ['MySQL', 'Postgres', 'Redis'],
+	'ORM': ['TypeORM', 'MikroORM', 'Prisma'],
+	'Cloud': ['Docker', 'Vagrant', 'NGINX'],
+	'Testing': ['Cypress', 'Jest'],
+	'Accounting': ['Avalara', 'NetSuite', 'QuickBooks'],
+	'Payments': ['TSYS', 'Merchantware', 'Cayan', 'Stripe'],
+	'CRM': ['SalesForce', 'HubSpot'],
+};
+
+---
+
+<BaseLayout pageTitle={pageTitle}>
+<div class="about-page">
+	<a class="button" href="https://linkedin.com/in/raed-dfw">LinkedIn</a>
+	<a class="button" href="https://github.com/rahmedd">GitHub</a>
+	<a class="button" href="https://gitlab.com/rahmedd/">GitLab</a>
+
+	<h2 class="title">Skills</h2>
+	{Object.keys(skillTree).map((category) => (
+		<div class="skill-container">
+			<p class="skill-heading">{category}</p>
+			{skillTree[category].map((skill) => <a class="tag is-link is-medium" href={`/tags/${skill.toLowerCase()}`}>{skill}</a>)}
+		</div>
+	))}
+</div>
+</BaseLayout>
+
+<style lang="scss" scoped>
+@import "bulma/sass/utilities/initial-variables.sass"; // breakpoints
+@import "../styles/vars.scss";
+
+.about-page {
+	margin: $bl-page-margin;
+	min-height: 100dvh;
+}
+
+
+.skill-container {
+	margin-bottom: 1rem;
+	
+	.tag {
+		margin-right: 0.5rem;
+	}
+}
+</style>
