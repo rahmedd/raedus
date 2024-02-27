@@ -12,9 +12,16 @@
 </style>
 
 <footer class="footer">
-	<a class="button is-ghost" href="https://linkedin.com/in/raed-dfw">linkedin</a>
-	<a class="button is-ghost" href="https://github.com/rahmedd">github</a>
-	<a class="button is-ghost" href="https://gitlab.com/rahmedd/">gitlab</a>
+	<a id="linkedin-link-footer" class="button is-ghost" href="https://linkedin.com/in/">...</a>
+	<a id="github-link-footer" class="button is-ghost" href="https://github.com/">...</a>
+	<a id="gitlab-link-footer" class="button is-ghost" href="https://gitlab.com/">...</a>
 	<!-- <a class="button is-ghost" href="https://www.medium.com">medium</a> -->
 	<!-- <a class="button is-ghost" href="https://www.dev.to">dev.to</a> -->
 </footer>
+
+<script>
+	import replaceLinkTags from '../scripts/socials';
+	setTimeout(() => {
+		replaceLinkTags('footer', true)
+	}, 500)
+</script>

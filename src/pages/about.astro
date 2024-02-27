@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro"
 
 const pageTitle = "About Me";
 const happy = true;
@@ -62,16 +62,26 @@ const skillTree = {
 
 <BaseLayout pageTitle={pageTitle}>
 <div class="about-page">
-	<h2 class="title">About Me</h2>
-	<div class="contact-info">
-		<p>A passionate developer.</p>
-	</div>
+	<!-- <h2 class="title">About Me</h2> -->
+	<!-- <div class="contact-info">
+		
+	</div> -->
 
 	<h2 class="title">Contact</h2>
 	<div class="contact-info">
-		<a class="button" href="https://linkedin.com/in/raed-dfw">LinkedIn</a>
-		<a class="button" href="https://github.com/rahmedd">GitHub</a>
-		<a class="button" href="https://gitlab.com/rahmedd/">GitLab</a>
+		<p>You can find me on the following platforms:</p>
+		<div class="social">
+			<div>
+				<a id="linkedin-link-contact" class="button is-ghost" href="https://linkedin.com/in/">...</a>
+			</div>
+
+			<div>
+				<a id="github-link-contact" class="button is-ghost" href="https://github.com/">...</a>
+			</div>
+			<div>
+				<a id="gitlab-link-contact" class="button is-ghost" href="https://gitlab.com/">...</a>
+			</div>
+		</div>
 	</div>
 
 	<h2 class="title">Skills</h2>
@@ -105,4 +115,20 @@ const skillTree = {
 .contact-info {
 	margin-bottom: 2rem;
 }
+
+.social {
+	display: flex;
+	flex-direction: column;
+
+	.button {
+		padding: 0
+	}
+}
 </style>
+
+<script>
+	import replaceLinkTags from '../scripts/socials';
+	setTimeout(() => {
+		replaceLinkTags('contact')
+	}, 500)
+</script>
