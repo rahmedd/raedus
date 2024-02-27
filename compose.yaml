@@ -1,7 +1,6 @@
 services:
   raedus-astro:
     build: .
-    restart: always
     volumes:
       - blog-dist:/dist
 
