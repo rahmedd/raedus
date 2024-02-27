@@ -1,0 +1,11 @@
+services:
+  raedus-astro:
+    build: .
+    restart: always
+    volumes:
+      - blog-dist:/dist
+
+volumes:
+  blog-dist:
+    name: blog-dist
+    external: true
