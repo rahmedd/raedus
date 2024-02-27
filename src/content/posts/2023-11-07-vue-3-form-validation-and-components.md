@@ -9,4 +9,4 @@ pubDate: 2023-11-07
 tags: ["vue", "forms", "validation"]
 ---
 
-lorem ipsum
+Placeholder blog post. Work in progress.

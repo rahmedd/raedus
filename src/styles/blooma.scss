@@ -16,6 +16,18 @@ hr {
 	background: $bl-background-light;
 }
 
+// Markdown
+.content {
+	h2 {
+		border-bottom: 1px solid $grey-lighter;
+		padding-bottom: 0.4rem;
+	}
+
+	.astro-code {
+		border-radius: 5px;
+	}
+}
+
 // Import only what you need from Bulma
 // @import "../node_modules/bulma/sass/utilities/_all.sass";
 // @import "../node_modules/bulma/sass/base/_all.sass";

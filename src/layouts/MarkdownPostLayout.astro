@@ -18,7 +18,9 @@ const { frontmatter } = Astro.props;
 				)
 			}
 		</div>
-		<slot />
+		<div class="content">
+			<slot />
+		</div>
 	</div>
 </BaseLayout>
 
@@ -37,10 +39,17 @@ const { frontmatter } = Astro.props;
 	margin-bottom: 0.5rem;
 }
 
-// fullscreen modal
+.content {
+	width: 1200px;
+}
+
 @media screen and (max-width: $tablet) {
 	.blog-post {
 		margin: 2rem;
+	}
+
+	.content {
+		width: 100%;
 	}
 }
 </style>
