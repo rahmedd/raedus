@@ -51,6 +51,10 @@ const sortedYears = Object.keys(postsByYear).sort((a, b) => parseInt(b) - parseI
 }
 
 @media screen and (max-width: $tablet) {
+	.blog-page {
+		margin: $bl-page-margin-tablet;
+	}
+
 	.blog-post {
 		margin: 2rem;
 	}
