@@ -6,7 +6,7 @@ image:
   url: ""
   alt: ""
 pubDate: 2024-02-18
-tags: ["devops", docker", "infrastructure", "nginx", "security"]
+tags: ["devops", "docker", "infrastructure", "nginx", "security"]
 ---
 
 Hosting multiple Docker compose applications on a Ubuntu server.
